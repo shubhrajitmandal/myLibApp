@@ -27,4 +27,4 @@ app.use(express.static("public"));
 
 app.use("/", require("./routes/index"));
 
-app.listen(PORT, () => console.log(`Server listening on port ${PORT}...`));
+app.listen(PORT, () => console.log(`Server listening `));
