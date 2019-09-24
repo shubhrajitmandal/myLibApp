@@ -1,1 +1,14 @@
 <h1>Homepage!</h1>
+
+<div class="container">
+    <h3>Recently Added</h3>
+    <ul class="books-list">
+        {{#each booksList}}
+            <li>
+                <a href="/books/{{_id}}">
+                    <img height="150" width="150" src={{coverImagePath}} alt="{{title}}">
+                </a>
+            </li>
+        {{/each}}
+    </ul>
+</div>

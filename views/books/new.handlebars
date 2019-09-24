@@ -1,0 +1,46 @@
+<h2>Add Book</h2>
+
+<form action="/books" method="POST" class="form-book" enctype="multipart/form-data">
+    {{> errorMessage}}
+    <div>
+        <label>Title</label>
+        <input type="text" name="title" value={{book.title}}>
+    </div>
+
+    <div>
+        <label>Author</label>
+        <select name="author">
+            {{#each authorsList}}
+                {{!-- {{#if (author.id === book.author)}} --}}
+                <option label="{{name}}" value="{{id}}"></option>
+                {{!-- {{else}} --}}
+                {{!-- <option label="{{name}}" value="{{id}}"></option>
+            {{/if}} --}}
+            {{/each}}
+        </select>
+    </div>
+
+    <div>
+        <label>Publish Date</label>
+        <input type="date" name="publish_date">
+
+    </div>
+
+    <div>
+        <label>Page Count</label>
+        <input type="number" name="page_count" value={{book.page_count}}>
+    </div>
+
+    <div>
+        <label>Cover</label>
+        <input type="file" name="cover">
+    </div>
+
+    <div>
+        <label>Description</label>
+        <textarea name="description">{{book.description}}</textarea>
+    </div>
+
+    <a href="/authors" class="btn cancel">Cancel</a>
+    <button type="Submit" class="btn create">Create</button>
+</form>

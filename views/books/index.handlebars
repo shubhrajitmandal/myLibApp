@@ -1,0 +1,17 @@
+<h2>Search Books</h2>
+
+<form action="/books" method="GET" class="search-book">
+    <label>Title</label>
+    <input type="search" name="title" value={{searchOptions.title}}>
+    <button type="submit" class="btn search">Search</button>
+</form>
+
+<ul class="books-list">
+    {{#each booksList}}
+        <li>
+            <a href="/books/{{_id}}">
+                <img height="150" width="150" src={{coverImagePath}} alt="{{title}}">
+            </a>
+        </li>
+    {{/each}}
+</ul>

@@ -2,9 +2,11 @@
 
 <form action="/authors" method="GET" class="author-search">
     <label>Name</label>
-    <input type='text' name="name" value={{searchOptions.name}}>
+    <input type='search' name="name" value={{searchOptions.name}}>
     <Button type="submit" class="btn search">Search</Button>
 </form>
+
+{{> errorMessage }}
 
 <ul class="authors-list">
     {{#each authorList}}

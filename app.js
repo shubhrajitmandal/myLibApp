@@ -27,5 +27,6 @@ app.use(express.static("public"));
 
 app.use("/", require("./routes/index"));
 app.use("/authors", require("./routes/author"));
+app.use("/books", require("./routes/book"));
 
 app.listen(PORT, () => console.log(`Server listening on port ${PORT}...`));

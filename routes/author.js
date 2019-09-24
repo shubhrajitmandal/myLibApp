@@ -15,12 +15,11 @@ router.get("/", async (req, res) => {
       authorList: authors,
       searchOptions: req.query
     });
-    if (!authors) {
-      throw "No authors to display!";
-    }
-  } catch (err) {
-    console.log(err);
-    res.render("error");
+    // if (authors != null) {
+    //   throw "No authors to display!";
+    // }
+  } catch {
+    res.redirect("/");
   }
 });
 
@@ -42,6 +41,7 @@ router.get("/:authorID", async (req, res) => {
     });
   } catch (err) {
     console.log(err);
+    res.render("404");
   }
 });
 
