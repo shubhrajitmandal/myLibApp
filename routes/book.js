@@ -64,7 +64,7 @@ router.post("/", async (req, res) => {
 
   try {
     const newBook = await book.save();
-    console.log("New Book added: ", newBook);
+    // console.log("New Book added: ", newBook);
     res.redirect(`books/${newBook._id}`);
   } catch {
     // if (book.coverImageName != null) removeBookCover(book.coverImageName);

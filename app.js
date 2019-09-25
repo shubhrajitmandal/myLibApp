@@ -6,6 +6,7 @@ const express = require("express");
 const app = express();
 const hbs = require("express-handlebars");
 const mongoose = require("mongoose");
+const methodOverride = require("method-override");
 
 const PORT = process.env.PORT || 5000;
 
@@ -22,7 +23,7 @@ app.set("view engine", "handlebars");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
+app.use(methodOverride("_method"));
 app.use(express.static("public"));
 
 app.use("/", require("./routes/index"));

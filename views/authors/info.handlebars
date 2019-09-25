@@ -1,3 +1,20 @@
-{{author._id}}
-<br>
-{{author.name}}
+{{> errorMessage}}
+
+<h2>{{author.name}}</h2>
+
+<a href="/authors/{{id}}/edit" class='btn edit'>Edit</a>
+<form method="POST" action="/authors/{{id}}?_method=DELETE">
+    <button type="submit" class="btn delete">Delete</button>
+</form>
+
+<h3>Books by the author</h3>
+
+<ul class="books-list">
+    {{#each booksList}}
+        <li>
+            <a href="/books/{{_id}}">
+                <img height="150" width="150" src={{coverImagePath}} alt="{{title}}">
+            </a>
+        </li>
+    {{/each}}
+</ul>
