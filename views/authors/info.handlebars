@@ -2,8 +2,8 @@
 
 <h2>{{author.name}}</h2>
 
-<a href="/authors/{{id}}/edit" class='btn edit'>Edit</a>
-<form method="POST" action="/authors/{{id}}?_method=DELETE">
+<a href="/authors/{{author.id}}/edit" class='btn edit'>Edit</a>
+<form method="POST" action="/authors/{{author.id}}?_method=DELETE" class="form-delete">
     <button type="submit" class="btn delete">Delete</button>
 </form>
 

@@ -110,8 +110,12 @@ router.delete("/:authorID", async (req, res) => {
     await author.remove();
     res.redirect("/authors");
   } catch (err) {
+    const books = await Book.find({
+      author: author.id
+    });
     res.render("authors/info", {
       author: author,
+      booksList: books,
       errorMessage: err
     });
   }
