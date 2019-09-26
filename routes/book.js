@@ -39,10 +39,10 @@ router.get("/new", async (req, res) => {
 });
 
 router.get("/:bookID", async (req, res) => {
-  const book = await Book.findOne({
-    _id: req.params.bookID
-  });
   try {
+    const book = await Book.findById(req.params.bookID)
+      .populate("author")
+      .exec();
     res.render("books/info", {
       book: book
     });
@@ -60,6 +60,7 @@ router.post("/", async (req, res) => {
     page_count: req.body.page_count,
     description: req.body.description
   });
+
   saveCover(book, req.body.cover);
 
   try {
@@ -69,6 +70,58 @@ router.post("/", async (req, res) => {
   } catch {
     // if (book.coverImageName != null) removeBookCover(book.coverImageName);
     renderNewPage(res, book, true);
+  }
+});
+
+router.get("/:bookID/edit", async (req, res) => {
+  try {
+    const book = await Book.findOne({
+      _id: req.params.bookID
+    });
+    const authors = await Author.find();
+    res.render("books/edit", {
+      authorsList: authors,
+      book: book
+    });
+  } catch {
+    res.redirect("/books");
+  }
+});
+
+// Edit Author
+router.put("/:bookID", async (req, res) => {
+  let book;
+  try {
+    book = await Book.findById(req.params.bookID);
+
+    book.title = req.body.title;
+    book.author = req.body.author;
+    book.publish_date = req.body.publish_date;
+    book.page_count = req.body.page_count;
+    book.description = req.body.description;
+    if (req.body.cover != null && req.body.cover !== "") {
+      saveCover(book, req.body.cover);
+    }
+
+    await book.save();
+    res.redirect(`/books/${book.id}`);
+  } catch {
+    res.render("books/edit", {
+      book: book,
+      errorMessage: "Error Updating Book!"
+    });
+  }
+});
+
+// Delete Author
+router.delete("/:bookID", async (req, res) => {
+  let book;
+  try {
+    book = await Book.findById(req.params.bookID);
+    await book.remove();
+    res.redirect("/books");
+  } catch {
+    res.redirect(`/books/${book._id}`);
   }
 });
 
@@ -85,7 +138,7 @@ async function renderNewPage(res, book, hasError = false) {
       authorsList: authors,
       book: book
     };
-    if (hasError) params.errMessage = "Error Creating Book";
+    if (hasError) params.errMessage = "Error Creating Book!";
     res.render("books/new", params);
   } catch {
     res.redirect("/books");

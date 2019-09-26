@@ -1,0 +1,46 @@
+<h2>Edit Book</h2>
+
+<form action="/books/{{book.id}}?_method=PUT" method="POST" class="form-book">
+    {{> errorMessage}}
+    <div>
+        <label>Title</label>
+        <input type="text" name="title" value={{book.title}}>
+    </div>
+
+    <div>
+        <label>Author</label>
+        <select name="author">
+            {{#each authorsList}}
+                {{!-- {{#if (author.id === book.author)}} --}}
+                <option label="{{name}}" value="{{id}}"></option>
+                {{!-- {{else}} --}}
+                {{!-- <option label="{{name}}" value="{{id}}"></option>
+            {{/if}} --}}
+            {{/each}}
+        </select>
+    </div>
+
+    <div>
+        <label>Publish Date</label>
+        <input type="date" name="publish_date" value="{{book.publish_date}}" class="date">
+
+    </div>
+
+    <div>
+        <label>Page Count</label>
+        <input type="number" name="page_count" value={{book.page_count}}>
+    </div>
+
+    <div>
+        <label>Cover</label>
+        <input type=" file" name="cover" class='filepond' value={{book.coverImagePath}}>
+    </div>
+
+    <div>
+        <label>Description</label>
+        <textarea name="description">{{book.description}}</textarea>
+    </div>
+
+    <a href="/books/{{book.id}}" class="btn cancel">Cancel</a>
+    <button type="Submit" class="btn create">Update</button>
+</form>

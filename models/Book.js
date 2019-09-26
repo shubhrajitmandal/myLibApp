@@ -10,7 +10,7 @@ const bookSchema = new mongoose.Schema(
       required: true
     },
     publish_date: {
-      type: Date,
+      type: String,
       required: true
     },
     page_count: {
@@ -18,7 +18,8 @@ const bookSchema = new mongoose.Schema(
       required: true
     },
     description: {
-      type: String
+      type: String,
+      required: true
     },
     createdAt: {
       type: Date,

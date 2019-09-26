@@ -97,7 +97,7 @@ router.put("/:authorID", async (req, res) => {
   } catch {
     res.render("authors/edit", {
       author: author,
-      errMessage: "Error Updating Author"
+      errorMessage: "Error Updating Author"
     });
   }
 });
@@ -109,15 +109,8 @@ router.delete("/:authorID", async (req, res) => {
     author = await Author.findById(req.params.authorID);
     await author.remove();
     res.redirect("/authors");
-  } catch (err) {
-    const books = await Book.find({
-      author: author.id
-    });
-    res.render("authors/info", {
-      author: author,
-      booksList: books,
-      errorMessage: err
-    });
+  } catch {
+    res.redirect(`/authors/${author._id}`);
   }
 });
 

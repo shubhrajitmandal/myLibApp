@@ -7,7 +7,7 @@
     "start": "node app.js",
     "devStart": "nodemon app.js"
   },
-  "author": "shubhrajit97",
+  "author": "Shubhrajit97",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",

@@ -1,5 +1,3 @@
-{{> errorMessage}}
-
 <h2>{{author.name}}</h2>
 
 <a href="/authors/{{author.id}}/edit" class='btn edit'>Edit</a>
@@ -13,7 +11,7 @@
     {{#each booksList}}
         <li>
             <a href="/books/{{_id}}">
-                <img height="150" width="150" src={{coverImagePath}} alt="{{title}}">
+                <img height="200" width="200" src={{coverImagePath}} alt="{{title}}">
             </a>
         </li>
     {{/each}}
