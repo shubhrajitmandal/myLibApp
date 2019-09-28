@@ -1,12 +1,17 @@
-<h2>Edit Author</h2>
+<div class="container">
+    <div class="landing-cover">
+        <h2>Edit Author</h2>
 
-{{> errorMessage}}
+        {{> errorMessage}}
 
-<form action="/authors/{{author.id}}?_method=PUT" method="POST" class="form-author">
-    {{> errorMessage}}
-    <label>Name</label>
-    <input type="text" name="name" value={{author.name}}>
+        <form action="/authors/{{author.id}}?_method=PUT" method="POST" class="form-author">
+            <label class="author-name">Name</label>
+            <input type="text" name="name" class="author-input" value="{{author.name}}">
 
-    <a href="javascript:history.back()" class="btn cancel">Cancel</a>
-    <button type="Submit" class="btn create">Update</button>
-</form>
+            <div>
+                <a href="javascript:history.back()" class="btn cancel">Cancel</a>
+                <button type="Submit" class="btn update">Update</button>
+            </div>
+        </form>
+    </div>
+</div>

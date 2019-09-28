@@ -1,17 +1,24 @@
-<h2>{{author.name}}</h2>
+<div class="container-author">
+    <h2>{{author.name}}</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui fugit et labore mollitia. Consequatur impedit
+        labore, animi quos fugiat ratione repellat maiores, amet debitis dolorum sequi molestiae ipsum quis ipsam?
+    </p>
 
-<a href="/authors/{{author.id}}/edit" class='btn edit'>Edit</a>
-<form method="POST" action="/authors/{{author.id}}?_method=DELETE" class="form-delete">
-    <button type="submit" class="btn delete">Delete</button>
-</form>
+    <div class="group">
+        <a href="/authors/{{author.id}}/edit" class='btn edit'>Edit</a>
+        <form method="POST" action="/authors/{{author.id}}?_method=DELETE" class="form-delete">
+            <button type="submit" class="btn delete">Delete</button>
+        </form>
+    </div>
 
-<h3>Books by the author</h3>
+    <h3>Books by the author</h3>
+</div>
 
-<ul class="books-list">
+<ul class="book-list">
     {{#each booksList}}
-        <li>
+        <li class="book-items">
             <a href="/books/{{_id}}">
-                <img height="200" width="200" src={{coverImagePath}} alt="{{title}}">
+                <img height="250" width="200" src={{coverImagePath}} alt="{{title}}">
             </a>
         </li>
     {{/each}}

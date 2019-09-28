@@ -1,16 +1,16 @@
 <h2>Search Books</h2>
 
-<form action="/books" method="GET" class="search-book">
-    <label>Title</label>
-    <input type="search" name="title" value={{searchOptions.title}}>
+<form action="/books" method="GET" class="search-form">
+    <label class="title">Title</label>
+    <input type="search" class="search-input" name="title" value={{searchOptions.title}}>
     <button type="submit" class="btn search">Search</button>
 </form>
 
-<ul class="books-list">
+<ul class="book-list">
     {{#each booksList}}
-        <li>
+        <li class="book-items">
             <a href="/books/{{_id}}">
-                <img height="200" width="200" src={{coverImagePath}} alt="{{title}}">
+                <img height="250" width="200" src={{coverImagePath}} alt="{{title}}">
             </a>
         </li>
     {{/each}}

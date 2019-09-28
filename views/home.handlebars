@@ -1,12 +1,28 @@
-<h1>Homepage!</h1>
+<div class="landing">
+    <div class="landing-cover">
+        <h1>BookArray</h1>
+        <p>Keep your book collection organised</p>
+        <a href="/books" class="explore">View Collection</a>
 
-<div class="container">
+    </div>
+</div>
+
+<div class="stub">
+    <h3 class="heading">Manage your books from anywhere with ease</h3>
+    <p> The great thing about books? You can never get enough of them. But if you find your book collection becoming
+        unmanageable, this app will help you get it under control. Take stock of the tomes on
+        your increasingly crowded shelves with this home library app. Then you can carry your personal library right in
+        your pocket for easy reference.
+    </p>
+</div>
+
+<div class="book-container">
     <h3>Recently Added</h3>
-    <ul class="books-list">
+    <ul class="book-list">
         {{#each booksList}}
-            <li>
+            <li class="book-items">
                 <a href="/books/{{_id}}">
-                    <img height="200" width="200" src={{coverImagePath}} alt="{{title}}">
+                    <img height="250" width="200" src={{coverImagePath}} alt="{{title}}">
                 </a>
             </li>
         {{/each}}

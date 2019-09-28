@@ -1,20 +1,22 @@
 <h2> Search Authors</h2>
 
-<form action="/authors" method="GET" class="author-search">
-    <label>Name</label>
-    <input type='search' name="name" value={{searchOptions.name}}>
+<form action="/authors" method="GET" class="search-form">
+    <label class="title">Name</label>
+    <input type='search' class="search-input" name="name" value={{searchOptions.name}}>
     <Button type="submit" class="btn search">Search</Button>
 </form>
 
 <ul class="authors-list">
     {{#each authorsList}}
-        <li id={{id}}>
+        <li id={{id}} class="author-item">
             {{name}}
-            <a href="/authors/{{id}}" class='btn view'>View</a>
-            <a href="/authors/{{id}}/edit" class='btn edit'>Edit</a>
-            <form method="POST" action="/authors/{{id}}?_method=DELETE" class="form-delete">
-                <button type="submit" class="btn delete">Delete</button>
-            </form>
+            <span class="list-links">
+                <a href="/authors/{{id}}" class='btn view'>View</a>
+                <a href="/authors/{{id}}/edit" class='btn edit'>Edit</a>
+                <form method="POST" action="/authors/{{id}}?_method=DELETE" class="form-delete">
+                    <button type="submit" class="btn delete">Delete</button>
+                </form>
+            </span>
         </li>
     {{/each}}
 </ul>

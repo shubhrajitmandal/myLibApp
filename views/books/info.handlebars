@@ -1,20 +1,26 @@
-<h2>{{book.title}}</h2>
+<h2 class="book-title">{{book.title}}</h2>
 
-<div>
-    Author: {{book.author.name}}
-    <br>
-    Publish Date: {{book.publish_date}}
-    <br>
-    Page Count: {{book.page_count}}
-    <br>
-    Description: {{book.description}}
-</div>
+<div class="content">
+    <div class="left">
+        <img height="350" width="250" src={{book.coverImagePath}} alt="{{book.title}}">
+    </div>
 
-<div>
-    <img height="300" width="300" src={{book.coverImagePath}} alt="{{book.title}}">
-    <a href="/books/{{book.id}}/edit" class='btn edit'>Edit</a>
-    <form method="POST" action="/books/{{book.id}}?_method=DELETE" class="form-delete">
-        <button type="submit" class="btn delete">Delete</button>
-    </form>
-    <a href="/authors/{{book.author._id}}" class='btn view'>View Author</a>
+    <div class="right">
+        <label>Author: </label>{{book.author.name}}
+        <br>
+        <label>Publish Date: </label>{{book.publish_date}}
+        <br>
+        <label>Page Count: </label>{{book.page_count}}
+        <br>
+        <label>Description: </label>{{book.description}}
+        <br>
+
+        <div class="box">
+            <a href="/books/{{book.id}}/edit" class='btn edit'>Edit</a>
+            <form method="POST" action="/books/{{book.id}}?_method=DELETE" class="form-delete">
+                <button type="submit" class="btn delete">Delete</button>
+            </form>
+            <a href="/authors/{{book.author._id}}" class='btn view'>View Author</a>
+        </div>
+    </div>
 </div>

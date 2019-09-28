@@ -1,10 +1,16 @@
-<h2>Add Author</h2>
+<div class="container">
+    <div class="landing-cover">
+        <h2>Add Author</h2>
 
-<form action="/authors" method="POST" class="form-author">
-    {{> errorMessage}}
-    <label>Name</label>
-    <input type="text" name="name" value={{author.name}}>
+        <form action="/authors" method="POST" class="form-author">
+            {{> errorMessage}}
+            <label class="author-name">Name</label>
+            <input type="text" name="name" class="author-input" value={{author.name}}>
 
-    <a href="/authors" class="btn cancel">Cancel</a>
-    <button type="Submit" class="btn create">Create</button>
-</form>
+            <div>
+                <a href="/authors" class="btn cancel">Cancel</a>
+                <button type="Submit" class="btn create">Create</button>
+            </div>
+        </form>
+    </div>
+</div>

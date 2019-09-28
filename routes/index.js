@@ -9,7 +9,7 @@ router.get("/", async (req, res) => {
       .sort({
         createdAt: "desc"
       })
-      .limit(10)
+      .limit(8)
       .exec();
   } catch {
     books = [];

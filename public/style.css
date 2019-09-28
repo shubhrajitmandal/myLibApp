@@ -1,7 +1,556 @@
-h1 {
-  color: #ff153c;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+body {
+  font-family: "Bodoni MT";
+  background: #1f1f1f;
+  color: #f1f1f1;
+  font-size: 1.25rem;
+}
+
+a {
+  color: #f1f1f1;
+  text-decoration: none;
+}
+
+/* NAVBAR */
+.navbar {
+  z-index: 1;
+  position: sticky;
+  top: -1rem;
+  padding: 1rem 0;
+  background: #0f0f11;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  font-size: 1.25rem;
+}
+.nav-logo {
+  font-size: 2rem;
+  margin: 0 2rem;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links {
+  padding: 0 1rem;
+}
+
+.nav-links:hover {
+  color: lightseagreen;
+}
+
+/* Landing */
+.landing {
+  z-index: -1;
+  height: 90vh;
+  background: url("https://images.unsplash.com/photo-1536965764833-5971e0abed7c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
+  background-repeat: none;
+  background-position: top;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.landing-cover {
+  z-index: 1;
+  height: 90vh;
+  /* background: radial-gradient(ellipse, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.9)); */
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing h1 {
+  font-size: 5rem;
+  font-family: Algerian;
+}
+
+.landing p {
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+.explore {
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  color: #fff;
+  border: 1.5px solid #fff;
+  border-radius: 2px;
+}
+
+.explore:hover {
+  background: #fff;
+  color: lightseagreen;
+}
+
+.social-links {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.social-links i {
+  color: lightseagreen;
+  margin: 0.5rem;
+  cursor: pointer;
+}
+
+.stub {
+  background: #f0f0f0;
+  padding: 100px 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.stub p {
+  color: #0f0f11;
+  max-width: 600px;
+  padding: 0 2rem;
+}
+
+.heading {
+  color: lightseagreen;
+  text-align: center;
+  max-width: 400px;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* BOOK DISPLAY */
+.book-container {
+  max-width: 100%;
+  text-align: center;
+}
+
+.book-container h3 {
+  margin: 3rem 0;
+  font-size: 2rem;
+}
+
+.book-list {
+  margin: auto;
+  width: 80%;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.book-items {
+  margin: 2rem;
+  display: flex;
+  box-shadow: 0 0 16px 12px #0f0f11;
+  overflow: hidden;
+}
+
+.book-items img:hover {
+  transform: scale(1.08);
+}
+
+.book-items a {
+  background: #0f0f11;
+}
+
+/* FOOTER */
+.footer {
+  background: #0f0f11;
+  padding-top: 3rem;
+  text-align: left;
+}
+
+.footer h2 {
+  font-size: 2rem;
+}
+
+.footer h4 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-content {
+  color: lightseagreen;
+  font-size: 1rem;
+  margin: auto;
+  max-width: 90%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.footer-list {
+  margin: auto;
+  list-style: none;
+}
+
+.contact {
+  margin: auto;
+}
+
+.footer-links {
+  color: lightseagreen;
+}
+
+.footer-links:hover {
+  color: white;
+}
+
+.footer-copyright {
+  padding: 1rem 0;
+  text-align: center;
+}
+
+/* AUTHOR'S LIST */
+.authors-list {
+  padding: 2rem;
+  margin: auto;
+  margin-bottom: 4rem;
+  max-width: 800px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.author-item {
+  margin: 0.5rem auto;
+  padding: 8px 16px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid white;
+}
+
+.list-links {
+  display: flex;
+}
+
+.view {
+  background: rgb(2, 141, 255);
+  color: white;
+}
+
+.edit {
+  background: rgb(255, 145, 2);
+  color: white;
+}
+
+.delete {
+  background: rgb(233, 23, 8);
+  color: white;
+}
+
+/* ADD AUTHOR */
+.container {
+  height: 90vh;
+  background: url("https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.container h2 {
+  font-size: 4rem;
+  color: white;
+  /* text-shadow: 4px 4px 8px #0f0f11; */
+}
+
+.form-author {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.author-name {
+  margin-left: 10%;
+  margin-bottom: 0;
+  margin-right: auto;
+}
+
+.author-input {
+  width: 80%;
+  height: 2rem;
+  margin-bottom: 1.5rem;
+  padding-left: 2rem;
+  font-size: 1.25rem;
+  background: transparent;
+  color: white;
+  border: none;
+  outline: none;
+  border-bottom: 1.5px solid white;
+}
+
+.create {
+  font-family: "Bodoni MT";
+}
+
+.create {
+  background: rgb(2, 141, 255);
+  color: white;
+}
+
+.cancel {
+  background: rgb(233, 23, 8);
+  color: white;
+}
+
+/* EDIT AUTHOR */
+
+.update {
+  font-family: "Bodoni MT";
+}
+
+.update {
+  background: rgb(68, 255, 68);
+  color: white;
+}
+
+/* INFO AUTHOR */
+.container-author {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-author p {
+  max-width: 600px;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.group {
+  display: flex;
+}
+
+.container-author h3 {
+  margin-top: 3rem;
+  margin-right: auto;
+  margin-left: 10%;
+  font-size: 1.5rem;
+}
+
+/* BOOKS GALLERY */
 h2 {
-  color: #ff12ee;
+  color: lightseagreen;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: 3rem;
+  text-align: center;
+}
+
+.search-form {
+  margin: auto;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
+  font-size: 1.25rem;
+  text-align: left;
+  margin-bottom: 12px;
+}
+
+.search-input {
+  /* color: lightseagreen; */
+  height: 2rem;
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+  padding-left: 1rem;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+}
+
+.search-input:focus {
+  box-shadow: 0 0 8px 8px #0f0f11;
+}
+
+.btn {
+  margin: 0 1rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  padding: 6px 12px;
+  border: none;
+  outline: none;
+  /* background: #fff;
+  color: #666; */
+  cursor: pointer;
+  overflow: hidden;
+  font-family: "Bodoni MT";
+}
+
+.search {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.search {
+  background: lightseagreen;
+  color: white;
+}
+
+/* ADD BOOK */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.form-book {
+  margin: auto;
+  width: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.form-left {
+  width: 400px;
+  height: 350px;
+  margin-right: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-right {
+  width: 350px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.cover {
+  width: 300px;
+  height: 300px;
+}
+
+.cover label {
+  position: relative;
+  top: 150%;
+  left: 0%;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+select {
+  width: 400px;
+  height: 2rem;
+  border: none;
+  outline: none;
+  color: #555;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.form-group input[type="date"] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-text {
+  margin: 2rem 0;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-text label {
+  margin-bottom: 0.5rem;
+}
+
+.form-text textarea {
+  min-height: 150px;
+  height: auto;
+  border: none;
+  outline: none;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  color: #555;
+  font-size: 1.25rem;
+}
+
+.form-text div {
+  margin: auto;
+}
+
+.form-group input:focus,
+select:focus,
+textarea:focus {
+  box-shadow: 0 0 8px 8px #0f0f11;
+}
+
+/*BOOK INFO */
+
+.book-title {
+  margin-bottom: 3rem;
+}
+
+.content {
+  margin: auto;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  width: 80%;
+  display: flex;
+}
+
+.left {
+  margin-right: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.right label {
+  line-height: 2rem;
+  color: #ff5500;
+}
+
+.box {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.filepond--drop-label label {
+  padding-top: 3rem;
+  width: 300px;
+  height: 300px;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
 }
